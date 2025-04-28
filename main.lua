@@ -1,4 +1,16 @@
--- KEY SYSTEM PATCH START
+-- KEY SYSTEM START
+
+-- Key database: each has a link and its matching key
+local keys = {
+    {link = "https://work.ink/1Znx/7ps6e1pf", key = "X9J2-M4VK-P7Q1-Z0RT"}, -- Key 1
+    {link = "https://work.ink/1Znx/pcxj638f", key = "B7PQ-2XKL-V9M3-A8WD"}, -- Key 2
+    {link = "https://work.ink/1Znx/a8t5i8i4", key = "Q5ZN-K1VX-T7AP-4MRD"}, -- Key 3
+    {link = "https://work.ink/1Znx/ay1y3d9n", key = "V3KQ-7NWL-P2XZ-Y9MB"}, -- Key 4
+    {link = "https://work.ink/1Znx/tzv4tl0l", key = "A8MR-X5QZ-L0PV-T7KW"}, -- Key 5
+}
+
+-- Randomly pick one set
+local chosen = keys[math.random(1, #keys)]
 
 -- Create the UI
 local ScreenGui = Instance.new("ScreenGui")
@@ -44,28 +56,22 @@ MessageLabel.BackgroundTransparency = 1
 MessageLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
 MessageLabel.TextScaled = true
 
--- Variables
-local correctKey = "9A7B-3F2K-X1Z9"
-local RealScript = function()
-    -- YOUR MAIN SCRIPT CODE GOES HERE
-    -- Or call a loadstring if you want it to be clean
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Ishakfatrat34567/Dead-Rails/refs/heads/main/Main.lua"))()
-end
-
--- Functionality
+-- Button Functions
 GetKeyButton.MouseButton1Click:Connect(function()
-    setclipboard("https://work.ink/1Znx/ybu99gtb")
-    MessageLabel.Text = "Link copied to clipboard!"
+    setclipboard(chosen.link)
+    MessageLabel.Text = "Key link copied to clipboard!"
 end)
 
 SubmitButton.MouseButton1Click:Connect(function()
-    if TextBox.Text == correctKey then
+    if TextBox.Text == chosen.key then
         MessageLabel.Text = "Key Correct! Loading..."
         Frame.Visible = false
-        RealScript()
+        
+        -- Load your main script here
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Ishakfatrat34567/Dead-Rails-/refs/heads/main/main.lua"))()
     else
         MessageLabel.Text = "Wrong Key! Try again."
     end
 end)
 
--- KEY SYSTEM PATCH END
+-- KEY SYSTEM END
