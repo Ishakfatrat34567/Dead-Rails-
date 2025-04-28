@@ -68,7 +68,7 @@ SubmitButton.MouseButton1Click:Connect(function()
         Frame.Visible = false
         
         -- Load your main script here
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Ishakfatrat34567/Dead-Rails-/refs/heads/main/main.lua"))()
+        loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Ishakfatrat34567/Dead-Rails/refs/heads/main/Main.lua"))()"))()
     else
         MessageLabel.Text = "Wrong Key! Try again."
     end
